@@ -1,17 +1,22 @@
 @import '~bootstrap/scss/bootstrap';
-.row{
-  gap: 15px;
-.list{
 
+.row{
+  // gap: 15px;
+   justify-content: centesr;
+.list{
+  display: flex;
+  justify-content: center;
    margin-bottom: 15px;
 
 .list-row{
   display: flex;
-  max-height: 150px;
+  max-height: 250px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
   .list-row-img{
-    flex: 0 1 20%;
-    height: 100%;
-    width: 100%;
+
+
     img{
       height: 150px;
       width: 150px;
@@ -20,12 +25,72 @@
   }
   .list-row-desc{
     margin-left: 15px;
-    overflow: hidden;
-    p{
-      overflow: hidden;
+    // overflow: hidden;
+    h5{
+      width: 150px;
     }
+
+  }
+}
+}
+}
+
+.App > header{
+  background-image: url('./Image/Header_Recipes.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 200px;
+  margin-bottom: 30px;
+  display: inline-block;
+  h1{
+    color: white;
+    font-size: 50px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 70px 657px;
   }
 }
 
+.edit-modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34cc;
+  .edit-form {
+    flex: 1 1 auto;
+    padding: 10px 20px;
+    margin: 10px;
+    height: 100%;
+    border: 3px dashed skyblue;
+    background-color: #282c34;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+  }
 }
+
+.ingred{
+  display: flex;
+}
+
+.show-list-row-img{
+  margin-left: 40%;
+
+  img{
+    width: 200px;
+    height: 200px;
+  }
+
+}
+
+.modal {
+  display: block;
+  background-color: #0000005f;
 }
