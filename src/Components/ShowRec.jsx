@@ -1,19 +1,29 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import SaveDate from "../Contexts/SaveDate";
+import Message from "./Message";
+
 
 function ShowRec() {
-  const {modalData, setModalData, setSaveData} = useContext(SaveDate);
+  const {recepies, modalData, setModalData, setSaveData} = useContext(SaveDate);
+  const [msg, setMsg] =useState(null);
 
   if (modalData === null) {
     return null;
   }
 
+
+
   const saveMeal =() =>{
-    console.log('test')
-    setSaveData(modalData);
-    setModalData(null);
+    recepies.find(a => a.idMeal === modalData.idMeal) ? makeMsg('Toks patiekalas jau yra', 'crimson') : (setSaveData(modalData) || makeMsg('Patiekalas išsaugotas', 'grey'));
   }
 
+  const makeMsg = (text, color) => {
+    setMsg({text, color});
+    setTimeout(()=>{
+      setMsg(null);
+      setModalData(null);
+    }, 2000);
+  }
 
   return (
     <div className="edit-modal">
@@ -26,20 +36,12 @@ function ShowRec() {
             <div className="ingred">
               <div>
                 <ul>
-                  {Object.entries(modalData).map((key, value) =>
-                    key[0].match(/strIngredient[\d]/i) && key[1] !== "" ? (
-                      <li key={value}>{key[1]}</li>
-                    ) : null
-                  )}
+                  {Object.keys(modalData).filter(key => key.includes('strIngredient') && modalData[key]?.trim('' || null)).map((key, index)=> <li key={index}> {modalData[key]}</li>)}
                 </ul>
               </div>
               <div>
                 <ul>
-                  {Object.entries(modalData).map((key, value) =>
-                    key[0].match(/strMeasure[\d]/i) && key[1] !== "" ? (
-                      <li style={{listStyle: 'none'}} key={value}>{key[1]}</li>
-                    ) : null
-                  )}
+                  {Object.keys(modalData).filter(key => key.includes('strMeasure') && modalData[key]?.trim('' || null)).map((key, index)=> <li key={index}> {modalData[key]}</li>)}
                 </ul>
               </div>
               <div className="show-list-row-img">
@@ -60,8 +62,9 @@ function ShowRec() {
         </div>
       </div>
 
-
+      <Message msg={msg} setMsg={setMsg} />
     </div>
+
   );
 }
 export default ShowRec;

@@ -52,7 +52,7 @@
 }
 
 .edit-modal {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -60,13 +60,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #282c34cc;
+  background-color: #282c34;
+  overflow: scroll;
   .edit-form {
     flex: 1 1 auto;
     padding: 10px 20px;
     margin: 10px;
     height: 100%;
-    border: 3px dashed skyblue;
     background-color: #282c34;
     display: flex;
     justify-content: space-between;
@@ -92,5 +92,38 @@
 
 .modal {
   display: block;
+  width: 100%;
   background-color: #0000005f;
+  .modal-dialog{
+    max-width: 70%;
+  }
+}
+
+.msg-bin {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  .toast {
+      display: block;
+      margin: 10px;
+  }
+}
+
+.line{
+  &__content{
+    &__head{
+      display: flex;
+      margin-bottom: 20px;
+      gap: 40px;
+      .line__content__info{
+        .img-bin > img{
+          height: 100px;
+          width: 100px;
+        }
+      }
+    }
+  }
+  &__buttons{
+    margin-top: 20px;
+  }
 }

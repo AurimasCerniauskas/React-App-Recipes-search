@@ -23,7 +23,7 @@ function SaveRecepies(){
                       <div className="card-body">
                          <ul className="list-group">
                            {
-                              recepies?.map(m => <Line key={m.id} meal={m} />)
+                            recepies.length !== 0 ? recepies?.map(m => <Line key={m.id} meal={m} />) : <p>nėra išsaugotų patiekalų</p>
                            }
                         </ul>
                       </div>

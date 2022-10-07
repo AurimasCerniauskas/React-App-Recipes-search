@@ -25,12 +25,12 @@ function Search() {
       </div>
       <div className="row mb-4">
         {findRes !== null
-          ? findRes.meals.map((line) => (
+          ? findRes.meals !== null ? findRes.meals?.map((line) => (
               <div key={line.idMeal} className="col-3 list">
                 {" "}
                 <Meal line={line} />
               </div>
-            ))
+          )) : <h2>Nerastas patiekalas</h2>
           : console.log("prašome palaukti")}
       </div>
     </>
