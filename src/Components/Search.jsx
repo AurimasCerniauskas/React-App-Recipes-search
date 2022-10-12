@@ -18,15 +18,15 @@ function Search() {
 
   return (
     <>
-      <div className="row gx-3 mb-4">
-        <input className="col-4 px-2" placeholder="Search meal by name, e.g 'pie'" value={text} onChange={(e) => setText(e.target.value)}/>
-        <button disabled={text ? false : true} className="col-2 px-2" onClick={searchMeal}>Receptų paieška</button>
-        <button className="btn btn-success col-3 offset-1" onClick={() => setSaveModalData(recepies)}>Mėgstami patiekalai</button>
+      <div className="row gx-5 mb-4 field-group offset-md-1">
+        <input className="col-sm-6 col-md-4 px-2" placeholder="Search meal by name, e.g 'pie'" value={text} onChange={(e) => setText(e.target.value)}/>
+        <button disabled={text ? false : true} className="col-sm-6 col-md-2 px-2" onClick={searchMeal}>Receptų paieška</button>
+        <button className="btn btn-success col-sm-6 col-md-3 offset-md-1" onClick={() => setSaveModalData(recepies)}>Išsaugoti receptai</button>
       </div>
       <div className="row mb-4">
         {findRes !== null
           ? findRes.meals !== null ? findRes.meals?.map((line) => (
-              <div key={line.idMeal} className="col-3 list">
+              <div key={line.idMeal} className="col-sm-4 col-md-4 col-lg-3 list">
                 {" "}
                 <Meal line={line} />
               </div>
