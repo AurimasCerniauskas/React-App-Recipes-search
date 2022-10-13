@@ -12,8 +12,6 @@ This project is for educational porpuses only. Pull request are welcome, but pri
 
 Site published at: https://aurimascerniauskas.github.io/React-App-Recipes-search/
 
-Design: 
-
 Used: https://www.themealdb.com/api.php
 
 ## Project features
