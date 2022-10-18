@@ -18,7 +18,7 @@ function Search() {
     setText("");
     inputField.current.focus();
   };
-  const handleKeypress = e => {
+  const handleKeypress = (e) => {
     if(e.keyCode === 13){
       findBtn.current.focus();
     }

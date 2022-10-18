@@ -30,7 +30,7 @@ function App() {
     setLastUpdate(Date.now());
   }, [saveData]);
 
-    // DELETE
+    // delete
     useEffect(() => {
       if (null === deleteData) {
         return;
